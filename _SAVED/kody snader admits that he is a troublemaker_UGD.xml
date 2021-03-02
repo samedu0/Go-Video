@@ -387,7 +387,7 @@
     <fadeout duration="0" vol="0"/>
     <ttsdata>
       <type><![CDATA[tts]]></type>
-      <text><![CDATA[and don’t you dare cause trouble outside!]]></text>
+      <text><![CDATA[and don’t you dare cause trouble outside! because if you do, you will be grounded!]]></text>
       <voice><![CDATA[paul]]></voice>
     </ttsdata>
   </sound>
