@@ -147,6 +147,12 @@
 			height: 30px;
 		}
 
+		header>:nth-child(1)>:nth-child(1)>:nth-child(2) {
+			color: #666;
+			padding-left: 4px;
+			font-weight: 700;
+		}
+
 		header>:nth-child(1)>:nth-child(2) {
 			margin-right: 20px;
 			float: right;
@@ -253,6 +259,15 @@
 			font-size: 12px;
 		}
 
+		#dark::before {
+			font-family: 'GlyphiconsRegular';
+			padding-left: 10px;
+			content: '\E190';
+			font-size: 20px;
+			color: #fff;
+			text-decoration: none;
+		}
+
 		.warning>a {
 			color: #5596e6;
 		}
@@ -328,15 +343,19 @@
 			color: #999;
 		}
 
+		tr>:nth-child(2)>:nth-child(2) {
+			font-family: monospace;
+		}
+
 		tr>:nth-child(3) {
 			width: 250px;
 		}
 
 		tr>:nth-child(3)>* {
+			font-family: monospace;
 			display: inline-block;
 			text-align: center;
-			font-size: 12px;
-			width: 8.5px;
+			font-size: 14px;
 		}
 
 		tr>:nth-child(4) {
@@ -423,4 +442,4 @@
 			font-style: normal;
 		}
 	</style>
-</body></html>
+</body>
