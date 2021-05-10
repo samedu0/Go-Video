@@ -1,10 +1,13 @@
+<html>
+<head>
+<title>GoAnimate Wraper Home</title>
+</head>
 <body>
 	<header>
 		<div>
 			<div>
 				<a><img src="logo.png" /></a>
 				<span>1.2.7⅝</span><a href="./listdark.html"><span id="dark"></span></a>
-				<title>GoAnimate Wrapper Home</title>
 			</div>
 			<div>
 				<a class="button_small" onclick="document.getElementById('file').click()">UPLOAD A MOVIE</a>
@@ -16,10 +19,12 @@
 						<a href="/cc?themeId=family&bs=bob">Bob</a>
 						<a href="/cc?themeId=family&bs=rocky">Rocky</a>
 						<div></div>
+						<!--
 						<a href="/cc?themeId=business&bs=default">Business</a>
 						<a href="/cc?themeId=business&bs=heavy">Heavy</a>
 						<a href="/cc?themeId=business&bs=kid">Kid</a>
 						<div></div>
+						-->
 						<a href="/cc?themeId=whiteboard&bs=default">Whiteboard</a>
 						<a href="/cc?themeId=whiteboard&bs=kid">Whiteboard (Kid)</a>
 						<div></div>
@@ -37,26 +42,13 @@
 						<div></div>
 					</menu>
 				</div>
-				
-				<div class="char_dropdown button_small">
-					<div>BROWSE CHARACTERS</div>
-					<menu>
-						<a href="/cc_browser?themeId=family">Comedy World</a>
-						<a href="/cc_browser?themeId=anime">Anime</a>
-						<a href="/cc_browser?themeId=ninjaanime">Ninja Anime</a>
-						<a href="/cc_browser?themeId=cc2">Lil' Peepz</a>
-						<a href="/cc_browser?themeId=chibi">Chibi Peepz</a>
-						<a href="/cc_browser?themeId=ninja">Chibi Ninjas</a>
-					</menu>
-				</div>
-				
 				<a href="/go_full" class="button_big">MAKE A VIDEO</a>
 			</div>
 		</div>
 		<div class="warning">
 			.<br>Hours spent on getting importing to work so far: at least a dozen.
 			be advised that as new functionalities are being implemented,
-			software-breaking bugs will ensue.<br><a href='https://github.com/GoAnimate-Wrapper-Remastered/GoAnimate-Wrapper-Europe'>Link
+			software-breaking bugs will ensue.<br><a href='https://github.com/GoAnimate-Wrapper/GoAnimate-Wrapper'>Link
 				to the source code on GitHub</a>
 		</div>
 	</header>
@@ -76,9 +68,10 @@
 			</tr>
 		</tfoot>
 	</table>
-	<form enctype="multipart/form-data" action="/upload_movie" method="post">
-		<input id="file" type="file" onchange="this.form.submit()" name="import">
+	<form enctype='multipart/form-data' action='/upload_movie' method='post'>
+		<input id='file' type="file" onchange="this.form.submit()" name='import' />
 	</form>
+	 
 	<script>
 		const closeReq = new XMLHttpRequest();
 		closeReq.open('GET', '/events/close');
@@ -103,7 +96,7 @@
 				const tbl = json[c];
 				const date = tbl.date.substr(0, 10) + ' ' + tbl.date.substr(11);
 				tbody.insertAdjacentHTML('beforeend',
-					'<tr><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="javascript:;" onclick="popup(\'' + tbl.id + '\')"></a><a href="/go_full?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
+					'<tr><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date + '</span></td><td><a href="javascript:;" onclick="popup(\'' + tbl.id + '\')"></a><a href="/go_full?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
 			}
 		}
 
@@ -457,3 +450,4 @@
 		}
 	</style>
 </body>
+</html>
